@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private StarrySky sky;
 
     private int seed = 1234;
-    private float density = 0.05f;
+    private float density = 0.10f;
     private int baseMagnitude = 0;
     private int magnitudeAmplitude = 6;
 
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 .seed(seed)
                 .density(density)
                 .baseMagnitude(baseMagnitude)
-                .magnitudeAmplitude(magnitudeAmplitude);
+                .magnitudeAmplitude(magnitudeAmplitude)
+                .createGiantStar();
         sky.dominateBy(starMaker);
 
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
                         .seed(++seed)
                         .density(density)
                         .baseMagnitude(baseMagnitude)
-                        .magnitudeAmplitude(magnitudeAmplitude);
+                        .magnitudeAmplitude(magnitudeAmplitude)
+                        .createGiantStar();
                 sky.dominateBy(starMaker);
                 // sky.refresh();
             }

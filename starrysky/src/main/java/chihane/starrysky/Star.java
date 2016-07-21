@@ -37,6 +37,8 @@ public class Star extends View {
     @FloatRange(from = 0, to = 20)
     float size;
 
+    boolean twinkling;
+
     private Paint paint;
 
     public Star(Context context) { this(context, null); }
