@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 .density(density)
                 .baseMagnitude(baseMagnitude)
                 .magnitudeAmplitude(magnitudeAmplitude)
-                .createGiantStar();
+                .createGiantStar()
+                .starTwinkles();
         sky.dominateBy(starMaker);
 
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
                         .density(density)
                         .baseMagnitude(baseMagnitude)
                         .magnitudeAmplitude(magnitudeAmplitude)
-                        .createGiantStar();
+                        .createGiantStar()
+                        .starTwinkles();
                 sky.dominateBy(starMaker);
                 // sky.refresh();
             }

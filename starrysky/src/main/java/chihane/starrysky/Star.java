@@ -1,5 +1,6 @@
 package chihane.starrysky;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -14,8 +15,12 @@ import android.view.View;
 public class Star extends View {
     static final int MAGNITUDE_MAX = -6;
     static final int MAGNITUDE_MIN = 6;
-    static final int ALPHA_MAX = 0xff;
-    static final int ALPHA_MIN = 0x33;
+
+    private static final int ALPHA_MAX = 0xff;
+    private static final int ALPHA_MIN = 0x33;
+
+    private static final long TWINKLING_DURATION_MIN = 3000;
+    private static final long TWINKLING_DURATION_MAX = 6000;
 
     private static final int STYLE_NORMAL = 0;
 
@@ -37,9 +42,9 @@ public class Star extends View {
     @FloatRange(from = 0, to = 20)
     float size;
 
-    boolean twinkling;
-
     private Paint paint;
+
+    private float dimmedPercent = 1;
 
     public Star(Context context) { this(context, null); }
     public Star(Context context, AttributeSet attrs) { this(context, attrs, 0); }
@@ -59,6 +64,26 @@ public class Star extends View {
         paint = new Paint();
     }
 
+    void twinkle() {
+        ValueAnimator animator = ValueAnimator.ofFloat(1, 0);
+        animator.setDuration(TWINKLING_DURATION_MIN + (int) (Math.random() * (TWINKLING_DURATION_MAX - TWINKLING_DURATION_MIN)));
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float value = (float) animation.getAnimatedValue();
+                if (dimmedPercent == value) {
+                    return;
+                }
+
+                dimmedPercent = value;
+                invalidate();
+            }
+        });
+        animator.start();
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension((int) size, (int) size);
@@ -75,7 +100,7 @@ public class Star extends View {
         paint.setAntiAlias(true);
 
         paint.setColor(color);
-        paint.setAlpha(magnitude2Alpha(magnitude));
+        paint.setAlpha((int) (magnitude2Alpha(magnitude) * dimmedPercent));
     }
 
     private int magnitude2Alpha(int magnitude) {

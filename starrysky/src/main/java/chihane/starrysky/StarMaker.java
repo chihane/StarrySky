@@ -22,10 +22,13 @@ public class StarMaker {
     private static final int BLUE_MIN = 0x99;
     private static final int BLUE_MAX = 0xaa;
 
+    private static final float RATE_STAR_TWINKLING = 0.8f;
+
     private float density = 0.10f;
     private int magnitude = Star.MAGNITUDE_MAX;
     private int magnitudeAmplitude = 0;
-    private boolean createGiantStar = false;
+    private boolean mayCreateGiantStar = false;
+    private boolean mayTwinkle = false;
 
     private long seed;
 
@@ -55,7 +58,12 @@ public class StarMaker {
     }
 
     public StarMaker createGiantStar() {
-        this.createGiantStar = true;
+        this.mayCreateGiantStar = true;
+        return this;
+    }
+
+    public StarMaker starTwinkles() {
+        this.mayTwinkle = true;
         return this;
     }
 
@@ -82,15 +90,21 @@ public class StarMaker {
             if (actualMagnitude < Star.MAGNITUDE_MAX) actualMagnitude = Star.MAGNITUDE_MAX;
             star.magnitude = (int) actualMagnitude;
 
-            if (createGiantStar) {
-                boolean willBeRed = random.nextDouble() < GIANT_STAR_GENERATION_RATE;
-                boolean willBeBlue = random.nextDouble() < GIANT_STAR_GENERATION_RATE;
+            if (mayCreateGiantStar) {
+                boolean willBeRed = random.nextFloat() < GIANT_STAR_GENERATION_RATE;
+                boolean willBeBlue = random.nextFloat() < GIANT_STAR_GENERATION_RATE;
                 if (willBeRed) {
                     int r = RED_MIN + (int) (random.nextDouble() * (RED_MAX - RED_MIN));
                     star.color = Color.rgb(r, 0, 0);
                 } else if (willBeBlue) {
                     int b = BLUE_MIN + (int) (random.nextDouble() * (BLUE_MAX - BLUE_MIN));
                     star.color = Color.rgb(0, 0, b);
+                }
+            }
+
+            if (mayTwinkle) {
+                if (random.nextFloat() < RATE_STAR_TWINKLING) {
+                    star.twinkle();
                 }
             }
 
