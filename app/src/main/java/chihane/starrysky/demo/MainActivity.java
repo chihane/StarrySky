@@ -2,6 +2,7 @@ package chihane.starrysky.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import chihane.starrysky.StarMaker;
 import chihane.starrysky.StarrySky;
@@ -18,24 +19,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sky = (StarrySky) findViewById(R.id.starrySky);
 
+        sky = (StarrySky) findViewById(R.id.starrySky);
         StarMaker starMaker = StarMaker.with(this)
                 .seed(seed)
                 .density(density)
                 .baseMagnitude(baseMagnitude)
                 .magnitudeAmplitude(magnitudeAmplitude);
         sky.dominateBy(starMaker);
-    }
 
-    @Override
-    public void onBackPressed() {
-        StarMaker starMaker = StarMaker.with(this)
-                .seed(++seed)
-                .density(density)
-                .baseMagnitude(baseMagnitude)
-                .magnitudeAmplitude(magnitudeAmplitude);
-        sky.dominateBy(starMaker);
-//        sky.refresh();
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StarMaker starMaker = StarMaker.with(MainActivity.this)
+                        .seed(++seed)
+                        .density(density)
+                        .baseMagnitude(baseMagnitude)
+                        .magnitudeAmplitude(magnitudeAmplitude);
+                sky.dominateBy(starMaker);
+                // sky.refresh();
+            }
+        });
     }
 }
