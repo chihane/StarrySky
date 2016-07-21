@@ -69,6 +69,7 @@ public class Star extends View {
         animator.setDuration(TWINKLING_DURATION_MIN + (int) (Math.random() * (TWINKLING_DURATION_MAX - TWINKLING_DURATION_MIN)));
         animator.setRepeatMode(ValueAnimator.REVERSE);
         animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setStartDelay((long) (Math.random() * TWINKLING_DURATION_MAX / 2));
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
