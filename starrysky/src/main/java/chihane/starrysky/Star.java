@@ -63,6 +63,7 @@ public class Star extends View {
 
         paint = new Paint();
     }
+
     void twinkle() {
         dimmedPercent = (float) Math.random();
 
