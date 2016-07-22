@@ -6,7 +6,7 @@
 
 > May there will be enough star light in the sky to make a beautiful starry night.
 
-## Thanks to
+## Inspired by
 
 [NightView](https://github.com/Boris-Em/NightView)
 
