@@ -32,9 +32,9 @@ Use `StarrySky` like a regular `ViewGroup` :
 
 ```xml
 <chihane.starrysky.StarrySky
-        android:id="@+id/starrySky"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    android:id="@+id/starrySky"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 ```
 
 That's it!
