@@ -41,7 +41,7 @@ That's it!
 
 ## Customization
 
-`StarMaker` is the ONE who dominates the `StarrySky` and creates all stars, decides how stars are like, how many they are and how they move.
+`StarMaker` is the ONE who dominates the `StarrySky` and creates all `Star`s, decides how stars are like, how many they are and how they move.
 
 These are things he can do:
 
