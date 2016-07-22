@@ -48,9 +48,9 @@ These are things he can do:
 ```java
 StarMaker starMaker = StarMaker.with(context)
                 .seed(seed)                             // The random seed
-                .density(density)                       // [0f, 1f] How many stars there should be
-                .baseMagnitude(baseMagnitude)           // [-6, 6] Base point of stars' luminance
-                .magnitudeAmplitude(magnitudeAmplitude) // [0, 6] How random stars' luminance will be
+                .density(density)                       // How many stars there should be, [0f, 1f]
+                .baseMagnitude(baseMagnitude)           // Base point of stars' luminance, [-6, 6]
+                .magnitudeAmplitude(magnitudeAmplitude) // How random stars' luminance will be, [0, 6]
                 .createGiantStar()                      // Red & blue giant stars will be created 
                 .starTwinkles();                        // Stars will twinkle
 ```
