@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sky = (StarrySky) findViewById(R.id.starrySky);
+
+        sky.setBackgroundColor(StarrySky.BACKGROUND_COLOR_MIDNIGHT);
+
         StarMaker starMaker = StarMaker.with(this)
                 .seed(seed)
                 .density(density)
