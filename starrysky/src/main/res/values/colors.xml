@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="daylight_midnight">#000000</color>
+    <color name="daylight_dawn">#363b74</color>
+    <color name="daylight_dusk">#3d3242</color>
+</resources>

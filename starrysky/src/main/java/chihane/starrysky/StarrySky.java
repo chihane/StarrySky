@@ -2,6 +2,7 @@ package chihane.starrysky;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
@@ -10,6 +11,10 @@ import android.view.ViewGroup;
 import java.util.List;
 
 public class StarrySky extends ViewGroup {
+    public static final int BACKGROUND_COLOR_MIDNIGHT = Color.BLACK;
+    public static final int BACKGROUND_COLOR_DAWN = Color.rgb(0x36, 0x3b, 0x74);
+    public static final int BACKGROUND_COLOR_DUSK = Color.rgb(0x3d, 0x32, 0x42);
+
     private StarMaker starMaker = new StarMaker(getContext());
 
     public StarrySky(Context context) { this(context, null); }
@@ -26,6 +31,7 @@ public class StarrySky extends ViewGroup {
     }
 
     protected void init() {
+        setBackgroundColor(BACKGROUND_COLOR_MIDNIGHT);
     }
 
     public void dominateBy(StarMaker starMaker) {
