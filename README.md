@@ -39,6 +39,30 @@ Use `StarrySky` like a regular `ViewGroup` :
 
 That's it!
 
+## Customization
+
+`StarMaker` is the ONE who dominates the `StarrySky` and creates all stars, decides how stars are like, how many they are and how they move.
+
+These are things he can do:
+
+```java
+StarMaker starMaker = StarMaker.with(context)
+                .seed(seed)                             // The random seed
+                .density(density)                       // How many stars there should be
+                .baseMagnitude(baseMagnitude)           // Base point of stars' luminance
+                .magnitudeAmplitude(magnitudeAmplitude) // How random stars' luminance will be
+                .createGiantStar()                      // Red & blue giant stars will be created 
+                .starTwinkles();                        // Stars will twinkle
+```
+
+Then let him dominate the sky:
+
+```java
+sky.dominateBy(starMaker);
+```
+
+### For more details, check the `app` demo. 
+
 ## Inspired by
 
 [NightView](https://github.com/Boris-Em/NightView)
