@@ -26,4 +26,5 @@ dependencies {
     compile "com.android.support:design:24.1.1"
 
     compile project(':starrysky')
+//    compile 'com.github.chihane:StarrySky:1.0.0'
 }
