@@ -13,7 +13,7 @@ In project's `build.gradle`:
 ```groovy
 allprojects {
     repositories {
-        ...
+        // other repositories...
         maven { url "https://jitpack.io"}
     }
 }
@@ -23,7 +23,7 @@ In app's `build.gradle`:
 
 ```groovy
 dependencies {
-    ...
+    // other dependencies...
     compile 'com.github.chihane:StarrySky:1.0.0'
 }
 ```
