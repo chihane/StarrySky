@@ -2,6 +2,8 @@
 
 **StarryNight** provides a piece of beautiful starry sky for you in a handy, customizable way as an Android library.
 
+![image](/sample/sample1.gif)
+
 > May there will be enough star light in the sky to make a beautiful starry night.
 
 ## Thanks to
