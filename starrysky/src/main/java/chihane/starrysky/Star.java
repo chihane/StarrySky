@@ -63,13 +63,14 @@ public class Star extends View {
 
         paint = new Paint();
     }
-
     void twinkle() {
-        ValueAnimator animator = ValueAnimator.ofFloat(1, 0);
+        dimmedPercent = (float) Math.random();
+
+        boolean direction = Math.random() >= 0.5;
+        ValueAnimator animator = ValueAnimator.ofFloat(dimmedPercent, direction ? 1 : 0, direction ? 0 : 1);
         animator.setDuration(TWINKLING_DURATION_MIN + (int) (Math.random() * (TWINKLING_DURATION_MAX - TWINKLING_DURATION_MIN)));
         animator.setRepeatMode(ValueAnimator.REVERSE);
         animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setStartDelay((long) (Math.random() * TWINKLING_DURATION_MAX / 2));
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
