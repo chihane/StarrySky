@@ -4,8 +4,6 @@
 
 ![image](/sample/sample1.gif)
 
-> May there will be enough star light in the sky to make a beautiful starry night.
-
 ## Get started
 
 In project's `build.gradle`:
